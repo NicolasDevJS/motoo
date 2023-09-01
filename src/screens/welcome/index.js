@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Alert } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import * as S from "./styles"; 
 import { ValidateMobileNumber } from '../../services/user';
+import { GetToken } from "../../services/localStorage";
 
 
 export default function Welcome() {
@@ -17,6 +18,20 @@ export default function Welcome() {
             Alert.alert('Erro', 'Número não encontrado')
         }
     }
+
+
+
+    useEffect(() => {
+        (async () => {
+            const token = await GetToken();
+            if (token) {
+                navigation.navigate('Home')
+            }
+        })();
+    }
+
+    
+    }, [])
 
 
     return (
