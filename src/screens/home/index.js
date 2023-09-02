@@ -97,15 +97,18 @@ TaskManager.defineTask(LOCATION_TRACKING, async ({ data, error }) => {
         l2 = long;
 
         const position = {
+            type: 'notify_frontend',
             lat: l1,
             lon: l2
         }
+        // WebSocketManager.ws.send(JSON.stringify(position));
         if (WebSocketManager.ws.readyState === WebSocket.OPEN) {
             WebSocketManager.ws.send(JSON.stringify(position));
         }
 
         console.log(
-            `${new Date(Date.now()).toLocaleString()}: ${lat},${long}`
+            position,
+            // `${new Date(Date.now()).toLocaleString()}: ${lat},${long}`
         );
     }
 });

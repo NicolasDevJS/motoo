@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Welcome from '../screens/welcome';
 import InformPassword from '../screens/password';
 import Home from '../screens/home';
+import Perfil from '../screens/profile';
 
 
 
@@ -28,6 +29,10 @@ export default function Routes() {
                 <Stack.Screen 
                     name='Home' 
                     component={Home} 
+                />
+                <Stack.Screen 
+                    name='Perfil' 
+                    component={Perfil} 
                 />
             </Stack.Navigator>
         </NavigationContainer>

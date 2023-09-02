@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Alert } from 'react-native';
 import * as SC from './styles';
 import { ValidatePassword } from '../../services/user';
-import StoreToken from '../../services/localStorage';
+import { StoreToken } from '../../services/localStorage';
 
 
 export default function InformPassword({ route }) {
@@ -14,7 +14,8 @@ export default function InformPassword({ route }) {
     const validatePassword = async () => {
         const result = await ValidatePassword({ mobile, password })
         if (result['status'] != 'error') {
-            await StoreToken(result['status'])
+            await StoreToken(result)
+    
             navigation.navigate('Home')
         } else {
             Alert.alert('Erro', 'Problemas com a senha')

@@ -19,8 +19,6 @@ export default function Welcome() {
         }
     }
 
-
-
     useEffect(() => {
         (async () => {
             const token = await GetToken();
@@ -28,11 +26,7 @@ export default function Welcome() {
                 navigation.navigate('Home')
             }
         })();
-    }
-
-    
     }, [])
-
 
     return (
         <S.Container>    
